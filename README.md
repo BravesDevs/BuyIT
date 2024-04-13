@@ -1,3 +1,10 @@
+![icons8-android](https://github.com/BravesDevs/BuyIT/assets/35806828/b06f53a3-ce27-43c6-bfaa-277f640c9972) <img src="https://user-images.githubusercontent.com/74038190/214644145-264f4759-7633-441e-9d67-d8dda9d50d26.gif" width="80"> 
+![icons8-firebase](https://github.com/BravesDevs/BuyIT/assets/35806828/2fa7a802-3203-4894-b1fb-2bb240ccb2d4)
+
+
+
+
+
 ## BuyIT - Your Smooth Shopping Experience
 
 
