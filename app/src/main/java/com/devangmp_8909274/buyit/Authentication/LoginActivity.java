@@ -62,7 +62,12 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser(String email, String password) {
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(LoginActivity.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
+            if (email.isEmpty()) {
+                emailEditText.setError("Email is required");
+            }
+            if (password.isEmpty()) {
+                passwordEditText.setError("Password is required");
+            }
             return;
         }
 

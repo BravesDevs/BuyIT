@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.devangmp_8909274.buyit.R;
 import com.devangmp_8909274.buyit.Product.models.Product;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         @SuppressLint("DiscouragedApi") int resourceId = holder.itemView.getContext().getResources().getIdentifier(
                 products.get(position).getImage(), "drawable",
@@ -41,6 +42,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.productTitleTextView.setText(products.get(position).getTitle());
         holder.productBrandTextView.setText(products.get(position).getBrand());
         holder.productPriceTextView.setText(products.get(position).getPrice());
+
+        holder.addToCartButton.setOnClickListener(v -> {
+            int productId = products.get(position).getId();
+            // Add product to the cart
+        });
 
     }
 
@@ -55,12 +61,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         public TextView productBrandTextView;
         public TextView productPriceTextView;
 
+        public MaterialButton addToCartButton;
+
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             productImageView = itemView.findViewById(R.id.productImageView);
             productTitleTextView = itemView.findViewById(R.id.productTitleTextView);
             productBrandTextView = itemView.findViewById(R.id.productBrandTextView);
             productPriceTextView = itemView.findViewById(R.id.productPriceTextView);
+            addToCartButton = itemView.findViewById(R.id.addToCartButton);
         }
     }
 }
