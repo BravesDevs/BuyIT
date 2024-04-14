@@ -22,9 +22,7 @@ import java.util.List;
 
 public class ProductsActivity extends AppCompatActivity {
 
-    private RecyclerView productsRecyclerView;
-    private List<Product> products = new ArrayList<>();
-
+    private final List<Product> products = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +38,7 @@ public class ProductsActivity extends AppCompatActivity {
                     Product product = productSnapshot.getValue(Product.class);
                     products.add(product);
                 }
+
                 setupRecyclerView();
             }
 
@@ -48,12 +47,10 @@ public class ProductsActivity extends AppCompatActivity {
                 Log.e("ProductsActivity", "Failed to read value.", error.toException());
             }
         });
-
-
     }
 
     private void setupRecyclerView() {
-        productsRecyclerView = findViewById(R.id.productsRV);
+        RecyclerView productsRecyclerView = findViewById(R.id.productsRV);
         ProductAdapter productAdapter = new ProductAdapter(products);
 
         productsRecyclerView.setAdapter(productAdapter);

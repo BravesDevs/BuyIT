@@ -5,10 +5,8 @@ public class Product {
     String title;
 
     String brand;
-
-    String price;
+    int price;
     String image;
-
 
     public int getId() {
         return id;
@@ -34,11 +32,11 @@ public class Product {
         this.brand = brand;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -50,8 +48,7 @@ public class Product {
         this.image = image;
     }
 
-    // TODO: Add parameter for image when uncomment the image property in constructor.
-    public Product(int id, String title, String brand, String price, String image) {
+    public Product(int id, String title, String brand, int price, String image) {
         this.id = id;
         this.title = title;
         this.brand = brand;
