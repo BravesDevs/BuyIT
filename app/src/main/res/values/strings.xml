@@ -6,4 +6,8 @@
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
     <string name="login">Login</string>
+    <string name="product1">Product1</string>
+    <string name="checkout">Checkout</string>
+    <string name="total_199">Total: $199</string>
+    <string name="buyit">BuyIT</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.devangmp_8909274.buyit.Product;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -9,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.devangmp_8909274.buyit.Cart.CartActivity;
 import com.devangmp_8909274.buyit.Product.adapters.ProductAdapter;
 import com.devangmp_8909274.buyit.Product.models.Product;
 import com.devangmp_8909274.buyit.utils.FirebaseManager;
 import com.devangmp_8909274.buyit.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -23,6 +26,7 @@ import java.util.List;
 public class ProductsActivity extends AppCompatActivity {
 
     private final List<Product> products = new ArrayList<>();
+    private FloatingActionButton cartButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,9 @@ public class ProductsActivity extends AppCompatActivity {
                 Log.e("ProductsActivity", "Failed to read value.", error.toException());
             }
         });
+
+        cartButton = findViewById(R.id.cartButton);
+        cartButton.setOnClickListener(v -> navigateToCart());
     }
 
     private void setupRecyclerView() {
@@ -55,5 +62,10 @@ public class ProductsActivity extends AppCompatActivity {
 
         productsRecyclerView.setAdapter(productAdapter);
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void navigateToCart() {
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
     }
 }

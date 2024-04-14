@@ -3,10 +3,15 @@ package com.devangmp_8909274.buyit.Product.models;
 public class Product {
     int id;
     String title;
-
     String brand;
     int price;
     String image;
+
+    public Product(String title, int price, String image) {
+        this.title = title;
+        this.price = price;
+        this.image = image;
+    }
 
     public int getId() {
         return id;
